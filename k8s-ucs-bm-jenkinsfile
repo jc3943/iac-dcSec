@@ -1,0 +1,52 @@
+//Authored by Jeff Comer
+
+def nodeLabel = 'pod-builder-agent'
+pipeline {
+  environment {
+        BRANCH_NAME = "${GIT_BRANCH}"
+        varPath = "vars/" + "${BRANCH_NAME}"
+        repoVars = "${varPath}" + "/terraform/" +  "create_repos.tfvars"
+        osVars = "${varPath}" + "/terraform/" +  "os_install.tfvars"
+        APIC_CREDS = credentials('apic-creds')
+        vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".thor.iws.navy.mil"
+  }
+  agent {
+    kubernetes {
+      yamlFile 'jnlp-ubuntu-tfe.yaml'
+    }
+  }
+  
+  stages{
+    stage('Stat k8s Nodes') {
+      steps {
+        container('ubuntu-tfe') {
+          //Check health state of k8s nodes in target cluster
+          sh 'cp -r .kube /root/'
+          sh 'python3 k8s/clusterHealth.py'
+        }
+      }
+    }
+    stage('Add OS Install SCU and Image to repos') {
+      steps {
+        container('ubuntu-tfe') {
+          //kick off terraform osInstall
+          dir('tfe/intersight/osInstall/create_repos') {
+            sh 'terraform init'
+            sh 'terraform apply -var-file=../../../../$repoVars -auto-approve'
+          }
+        }
+      }
+    }
+    stage('Initial Bare-Metal OS Installs') {
+      steps {
+        container('ubuntu-tfe') {
+          //kick policy and profile create
+          dir('tfe/intersight/osInstall/os_install') {
+            sh 'terraform init'
+            sh 'terraform apply -var-file=../../../../$osVars -auto-approve'
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+[nxos:vars]
+ansible_user = admin
+ansible_password = cisco!123
+ansible_connection = httpapi
+ansible_network_os = nxos
+port = 80
+ansible_python_interpreter="/usr/bin/python3"
+
+[nxos]
+9.1.18.24
+9.1.18.25
+9.1.18.20
+9.1.18.21

@@ -1,0 +1,2 @@
+host,vswitchName,portGroupName,vlanId,vmotionIp,vmotionNetMask
+198.18.133.51,vSwitch0,vmotion,1000,10.1.1.1,255.255.255.0

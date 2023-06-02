@@ -1,0 +1,17 @@
+feature,hostname,mgmtIP
+privilege,cs05,9.1.18.24
+scp-server,cs06,9.1.18.25
+ospf,es01,9.1.18.20
+bgp,es02,9.1.18.21
+pim,,
+msdp,,
+eigrp,,
+udld,,
+interface-vlan,,
+hsrp,,
+lacp,,
+dhcp,,
+vpc,,
+lldp,,
+vtp,,
+bfd,,

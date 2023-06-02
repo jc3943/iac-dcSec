@@ -1,0 +1,12 @@
+apiVersion: "v1"
+kind: "Pod"
+spec:
+  containers:
+  - name: ubuntu-tfe
+    image: jc3943/ubuntu-tfe:20220911
+    command: ["sleep"]
+    args: ["360m"]
+  - name: ubuntu-runner
+    image: jc3943/ubuntu:021923
+    command: ["sleep"]
+    args: ["360m"]

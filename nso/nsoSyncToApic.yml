@@ -1,0 +1,16 @@
+---
+#Jeff Comer
+#Ansible playbook to add devices to NSO
+
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: Sync To Device
+    cisco.nso.nso_action:
+       url: "{{ item.nsoUrl }}"
+       username: admin
+       password: admin
+       path: /ncs:devices/device{"{{ item.apicName }}"}/sync-to
+       input: {}
+    with_items: "{{ nsospecs }}"

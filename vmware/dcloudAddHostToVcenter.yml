@@ -1,0 +1,63 @@
+# Jeff Comer
+# Ansible Playbook to add hosts to vcenter and attach nic's to a DVS
+# example seed file vars/<branch>/hx-hosts.yaml which was created using csv-to-yaml.py
+
+- name: vCenter DVS Tasks
+  hosts: localhost 
+  connection: local
+  gather_facts: False
+  vars:
+    datacenter: "dCloud-HX-DC-A"
+    cluster: "dCloud-ESXi"
+    folder: "/"
+    datastore: "hx-a-ds1"
+    esx_username: "root"
+    esx_password: "C1sco12345"
+
+  tasks:
+    - read_csv:
+        path: ../vars/dcloud/vmware/esxi-hosts.csv
+      register: hostlist
+      tags: hostadd, portgroup, vmotion
+
+    - name: TASK - Create cluster in vCenter
+      community.vmware.vmware_cluster:
+        hostname: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        datacenter_name: "{{ datacenter }}"
+        cluster_name: "{{ cluster }}"
+        state: present    
+    
+    - name: TASK - Add Hosts to vCenter
+      community.vmware.vmware_host:
+        hostname: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        datacenter_name: "{{ datacenter }}"
+        cluster_name: "{{ cluster }}"
+        esxi_hostname: '{{ hosts.host }}'
+        esxi_username: '{{ esx_username }}'
+        esxi_password: '{{ esx_password }}'
+        state: present
+      loop: "{{ hostlist.list }}"
+      loop_control:
+        loop_var: hosts
+      delegate_to: localhost
+      tags: hostadd
+
+    - name: TASK - Take hosts out of maintenance mode
+      community.vmware.vmware_maintenancemode:
+        hostname: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        esxi_hostname: '{{ hosts.host }}'
+        state: absent
+      loop: "{{ hostlist.list }}"
+      loop_control:
+        loop_var: hosts
+      delegate_to: localhost
+      tags: hostadd

@@ -1,0 +1,30 @@
+//Authored by Jeff Comer
+
+pipeline {
+  environment {
+        BRANCH_NAME = "${GIT_BRANCH}"
+        varPath = "vars/" + "${BRANCH_NAME}"
+        APIC_CREDS = credentials('apic-creds')
+        apicSnap = "acisim-521g-base-" + "${BRANCH_NAME}"
+        apicVm = "acisim-5.2-1g-" + "${BRANCH_NAME}"
+        apicInventory = "./creds/inv-" + "${BRANCH_NAME}"
+        apicInventoryx509 = "./creds/inv-" + "${BRANCH_NAME}" + "-x509"
+        vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".thor.iws.navy.mil"
+  }
+  agent any
+  
+  stages{
+
+    stage('Add APIC to NSO') {
+      steps {
+          //create user for signature-based auth for all other aci playbooks
+          ansiblePlaybook(
+              playbook: './nso/nsoSyncToApic.yml',
+              inventory: 'localhost',
+              extras: '--extra-vars="@vars/ltrato-2002/nso/nso-Specs.yaml',
+              colorized: true
+          )
+      }
+    }
+  }
+}

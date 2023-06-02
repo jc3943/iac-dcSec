@@ -1,0 +1,20 @@
+- name: Build NXOS
+  hosts: nxos
+  gather_facts: False
+
+  tasks:
+
+    - read_csv:
+        path: $varPath/nxos/nxosDevVars.csv
+      register: confList
+      tags: features
+
+    - name: Add NXOS feature to devices
+      cisco.nxos.nxos_feature:
+        feature: "{{ devConf.feature }}"
+        state: enabled
+      loop: "{{ confList.list }}"
+      loop_control:
+        loop_var: devConf
+      delegate_to: localhost
+      tags: features

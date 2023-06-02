@@ -1,0 +1,28 @@
+# This file is maintained automatically by "terraform init".
+# Manual edits may be lost in future updates.
+
+provider "registry.terraform.io/ciscodevnet/fmc" {
+  version = "1.2.0"
+  hashes = [
+    "h1:vl8hhPVnZw66w32Zg82OZ+sDTYQEADOp1u5+c0ZO+XM=",
+    "zh:1677de387fca83060525b2497dc02f5b2032675385e88a022b3abd0ed6b4893e",
+    "zh:37e8d5bff96c3fd6c9a3502afb46c22d8b5cf955f74d324d4234805997d9e78f",
+    "zh:574928b5223588192c45c11f6f49b6fdeacdc932c63263051f2ee7afdb5cb01d",
+    "zh:5e1ded17c23d8a7b26affa4772ea862e3cdd20651d54d90d1ff875736e7783a4",
+    "zh:66cd68a4e6a39d39fd312f8068dbe4b49261fdb603d99b59234193bc33ff0406",
+    "zh:747f318b346f01f22d2268e0f451efedc83b20b40129809eae64794c8d784409",
+    "zh:770fa990656ce62986bca739969cec8dd9696d7bc217afbce4bbb8e08969526c",
+    "zh:7bf3fcf3175269a233decd2a2bef8b7c56f30dd3a49bb7cfb603d2b1f83fca90",
+    "zh:7f4c0870fc9d871d4223d00aeddd93cc9332981e4d00bf041866cfc97bcd5632",
+    "zh:9d895d455807ec1da7432def6ec14b578ae3cb05c29f1fa8244d9edd91ffa9fd",
+    "zh:acbfd98cf902132cee6f8adbafe3828d90c8616e2b3502a4b2efcb7dcbd98d2e",
+    "zh:b035be1bfd235974468b2dfda2b9de95ee03e7b075cf0f7cc472db6efb84bb41",
+    "zh:c9fa8bea9b1b0f10b6036cec64548d289d49c343cb3c78863adb6c39c9322e28",
+    "zh:d251b961d01047674f56b6a329646921e9df09cbc806901daa41c39fa3623ff0",
+    "zh:d3d7727498cbdfec130d8f91547680d039a0628f525898d90bd6af9d8ac4ab34",
+    "zh:e6fa33f289010e378fbe37e91a71957dc22579753982e033a17fbd59f8948c45",
+    "zh:f18e6fa97df14502b5f3aa2f0bc2f8cd647f26850f747a5a46028b0e2c1ca4f0",
+    "zh:f7a23bf3f8795324c031b9a8612a8e8651034d2bf9c9f303913cb1405bd5e563",
+    "zh:fe1c634b4faef97d09804624328ccee25a231e68abb5c3a9c9d7c378e1bd9051",
+  ]
+}

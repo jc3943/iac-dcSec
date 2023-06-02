@@ -1,0 +1,38 @@
+--
+- hosts: localhost
+  name: Deploy an ubuntu ova to an ESXi Host
+  gather_facts: false
+  vars: 
+    esxi_username: 'root'
+    esxi_password: 'C1sco12345'
+    esxi_host: '198.18.134.201'
+    vcenter_hostname: '198.18.133.30'
+    vcenter_password: 'C1sco12345'
+    vcsa_user: 'administrator@vsphere.local'
+    vcsa_pw: 'C1sco12345'
+    domain: 'dcloud.cisco.com'
+    pubkey: 'ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBACmlZI97WQ8CGCKP6dypiTcCudqSN1QWEUTPZkKl37AvAwLS1cvlVBSMixyrPrPB4/zQlw9RKiW5ihtckik2jG2/AE6dX7J+fHzHh2QL08D45T3qFm82XSevKXn+ntWsHttpCcg/KVOftsLj52/2H5Xs084H9hPjd86mJIvIr+p3YxSog== dcloud@dcloud'
+    searchpath: "dcloud.cisco.com"
+    datastore: 'hx-a-ds1'
+    networks: 'VM Network'
+    ubuntu_ova_name: jammy-server-cloudimg-amd64.ova
+    ubuntu_ova_file: '/tmp/{{ ubuntu_ova_name }}'
+    nfs_file_browser_url: "http://198.18.133.198:8192"
+    nfs_file_browser_user: "admin"
+    nfs_file_browser_password: "admin"
+    nfs_file_url: '/api/raw/00-Software/utils/{{ vcsa_ova_name }}'
+
+  tasks:
+
+  - name: TASK - Clone Ubuntu Template
+    community.vmware.vmware_guest:
+      hostname: '{{ vcenter_hostname }}'
+      username: '{{ vcsa_user }}'
+      password: '{{ vcsa_pw }}'
+      validate_certs: no
+      template: "tmpl_ubuntu"
+      name: "ubuntu_dcloud-2"
+      folder: /
+      datacenter: "dCloud-HX-DC-A"
+      cluster: "hx-cluster-a"
+      state: poweredon  

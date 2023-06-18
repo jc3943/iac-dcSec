@@ -20,7 +20,7 @@
     vcsa_ova_url: http://172.16.65.167/00-Software/VMWare/
     #vcsa_ova_file: '/var/jenkins_home/{{ vcsa_ova_name }}'
     vcsa_ova_file: '/tmp/{{ vcsa_ova_name }}'
-    nfs_file_browser_url: "http://172.0.1.1:8080/"
+    nfs_file_browser_url: "http://172.16.10.124:8005"
     nfs_file_browser_user: "admin"
     nfs_file_browser_password: "admin"
     nfs_file_url: '/api/raw/00-Software/VMWare/{{ vcsa_ova_name }}'
@@ -33,23 +33,23 @@
 #      state: directory
 #      mode: 0777
 
-#  - name: Authenticate to the nfs file browser
-#    uri:
-#      url: '{{ nfs_file_browser_url }}/api/login'
-#      method: POST
-#      body_format: json
-#      body: '{"username":"{{ nfs_file_browser_user }}","password":"{{ nfs_file_browser_password }}","recaptcha":""}'
-#      headers:
-#        Content-Type: "application/json"
-#        Accept: "application/json"
-#      return_content: yes
-#      validate_certs: no
-#      status_code: 200, -1
-#    register: auth_res
+  - name: Authenticate to the nfs file browser
+    uri:
+      url: '{{ nfs_file_browser_url }}/api/login'
+      method: POST
+      body_format: json
+      body: '{"username":"{{ nfs_file_browser_user }}","password":"{{ nfs_file_browser_password }}","recaptcha":""}'
+      headers:
+        Content-Type: "application/json"
+        Accept: "application/json"
+      return_content: yes
+      validate_certs: no
+      status_code: 200, -1
+    register: auth_res
 
   - name: Download the file
     get_url:
-      url: '{{ nfs_file_browser_url }}/api/raw/00-Software/vmware/{{ vcsa_ova_name }}'
+      url: '{{ nfs_file_browser_url }}/api/raw/00-Software/vmware/{{ vcsa_ova_name }}?auth={{ auth_res.content  }}'
       #dest: '/var/jenkins_home/{{ vcsa_ova_name }}'
       dest: '/tmp/{{ vcsa_ova_name }}'
 
@@ -85,7 +85,7 @@
     delegate_to: localhost
     
   - name: Wait for vCenter
-    vmware_about_facts:
+    vmware_about_info:
       hostname: '{{ item.vcsaAddress }}'
       username: 'administrator@vsphere.local'
       password: '{{ vcenter_password }}'

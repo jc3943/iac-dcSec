@@ -7,7 +7,7 @@ pipeline {
         varPath = "vars/" + "${BRANCH_NAME}"
         TF_VAR_varPath = "vars/" + "${BRANCH_NAME}"
         TF_VAR_imcSeedFile = "../../../vars/" + "${BRANCH_NAME}" + "/imc/hostIpAddrs.csv"
-        APIC_CREDS = credentials('apic-creds')
+        IMC_CREDS = credentials('imc-creds')
         vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".thor.iws.navy.mil"
   }
   agent {
@@ -23,6 +23,21 @@ pipeline {
           //Check health state of k8s nodes in target cluster
           sh 'cp -r .kube /root/'
           sh 'python3 k8s/clusterHealth.py'
+        }
+      }
+    }
+    stage('Config DNS/NTP on UCS Servers') {
+      steps {
+        container('jnlp') {
+          sh '''
+          echo "Inbound Agent is Connected"
+          '''
+        }
+        container('ubuntu-tfe') {
+          //kick off terraform imc device discover for ucs hosts
+          sh 'python3 imc/imcNetSet.py -u $IMC_CREDS_USR -p $IMC_CREDS_PSW -i $varPath/imc/hostIpAddrs.csv'
+          //Start bare metal esxi host installs
+          //build job: 'intersight-BareMetalInstall', propagate: true, wait: false
         }
       }
     }

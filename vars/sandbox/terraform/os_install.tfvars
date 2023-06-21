@@ -2,9 +2,9 @@
 # Common
 org_name = "default"
 server_serial = "WMP2443017J"
-os_config_file = "ESXi6.7ConfigFile"
+os_config_file = "ESXi7.0ConfigFile"
 
-os_repo_name = "ESXi-6.7"
+os_repo_name = "ESXi-7.0"
 scu_repo_name = "SCU-6.1.3c"
 
 # os_install

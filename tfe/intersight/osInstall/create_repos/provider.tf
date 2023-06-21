@@ -10,6 +10,6 @@ terraform {
 
 provider "intersight" {
   apikey    = "6457bfa47564612d300f0917/6457cbbd7564612d30cb32ab/64595f8c7564612d30cb47cc"
-  secretkey = "../../../creds/dev-isight-SecretKey.txt"
+  secretkey = "../../../../creds/dev-isight-SecretKey.txt"
   endpoint  = "https://dev-intersight.thor.iws.navy.mil"
 }

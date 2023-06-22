@@ -5,7 +5,7 @@ server_serial = "WMP2443017J"
 os_config_file = "ESXi7.0ConfigFile"
 
 os_repo_name = "ESXi-7.0"
-scu_repo_name = "SCU-6.1.3c"
+scu_repo_name = "SCU-6.2.3b"
 
 # os_install
 # Configuration Source : Cisco
@@ -24,5 +24,5 @@ os_ipv4_gateway      = "172.16.115.254"
 os_ipv4_dns_ip       = "172.16.20.101"
 os_root_password     = "DEVP@ssw0rd"
 os_answers_nr_source = "Template" # Template for cisco provided source files
-os_answers_netDev    = "vmnic5"
+os_answers_netDev    = "vmnic4"
 os_answers_vlanId    = 1200

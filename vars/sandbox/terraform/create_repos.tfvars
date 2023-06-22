@@ -26,8 +26,8 @@ repo_source_user               = ""
 repo_source_password           = ""
 
 # create_scu_repo
-repo_source_scu_iso_path = "http://172.16.20.10/Intersight/ucs-cxxx-scu-6.1.3c.iso"
-scu_name                 = "SCU-6.1.3c"
-scu_description          = "SCU 6.1.3c software config utility"
-scu_nr_version           = "6.1.3c"
+repo_source_scu_iso_path = "http://172.16.20.10/Intersight/ucs-scu-6.2.3b.iso"
+scu_name                 = "SCU-6.2.3b"
+scu_description          = "SCU 6.2.3b software config utility"
+scu_nr_version           = "6.2.3b"
 scu_supported_models     = ["UCSC-C220-M5SX", "UCSC-C220-M5L", "UCSC-C220-M5SN", "HX220C-M5SX", "HXAF220C-M5SX", "C-series"]

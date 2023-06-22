@@ -17,7 +17,7 @@ resource "intersight_os_install" "os_install" {
   osdu_image {
     object_type = "firmware.ServerConfigurationUtilityDistributable"
     moid        = data.intersight_firmware_server_configuration_utility_distributable.scu_repo.results[0].moid
-    #selector    = "$filter=results[0].Version eq '6.1.3c'"
+    selector    = "$filter=results[0].Version eq '6.2.3b'"
   }
   configuration_file {
     object_type = "os.ConfigurationFile"

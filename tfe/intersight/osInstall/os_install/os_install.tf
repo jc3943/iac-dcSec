@@ -1,6 +1,6 @@
 resource "intersight_os_install" "os_install" {
   name = "InstallTemplate"
-  description    = "Install ESXi 6.7"
+  description    = "Install ESXi 7.0"
   organization {
     object_type = "organization.Organization"
     moid = data.intersight_organization_organization.org.results[0].moid

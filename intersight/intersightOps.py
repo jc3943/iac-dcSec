@@ -74,7 +74,7 @@ def getServerSummaries(specDict):
     
 
 def deployHXProfiles(specDict):
-    hxProfile = os.environ(['BRANCH'])
+    hxProfile = os.environ['BRANCH']
     profileURL = specDict['url'] + "/api/v1/hyperflex/ClusterProfiles"
     #print(profileURL)
     response = requests.get(profileURL, verify=False, auth=AUTH)

@@ -79,7 +79,7 @@ def deployHXProfiles(specDict):
     #print(profileURL)
     response = requests.get(profileURL, verify=False, auth=AUTH)
     hxProfileJson = response.json()
-    for i in range(len(Results)):
+    for i in range(len(hxProfileJson['Results'])):
         profileMoid =  hxProfileJson["Results"][i]["Moid"]
         if (profileMoid == hxProfile):
             profileDeployURL = profileURL + "/" + profileMoid

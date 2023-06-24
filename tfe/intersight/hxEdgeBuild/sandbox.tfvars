@@ -2,9 +2,9 @@
 
 # Configure Environment-1 Specific variables 
 # Intersight Access API Key
-api_key                                     = "6273ddc07564612d30091b97/6273e4cc7564612d300964b9/62f53d6e7564612d30253ff4"
-secret_key                                  = "../../../creds/qa-isight-SecretKey.txt"
-endpoint                                    = "https://qa-intersight.thor.iws.navy.mil"
+api_key                                     = "6457bfa47564612d300f0917/6457cbbd7564612d30cb32ab/64595f8c7564612d30cb47cc"
+secret_key                                  = "../../../creds/dev-isight-SecretKey.txt"
+endpoint                                    = "https://dev-intersight.thor.iws.navy.mil"
 # Common
 org_name                                    = "default"
 # Tags

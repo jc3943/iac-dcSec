@@ -5,6 +5,7 @@ import sys, getopt, csv, time
 import requests, json
 import urllib3
 from intersight_auth import IntersightAuth
+import os
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -73,18 +74,21 @@ def getServerSummaries(specDict):
     
 
 def deployHXProfiles(specDict):
+    hxProfile = os.environ(['BRANCH'])
     profileURL = specDict['url'] + "/api/v1/hyperflex/ClusterProfiles"
     #print(profileURL)
     response = requests.get(profileURL, verify=False, auth=AUTH)
     hxProfileJson = response.json()
-    profileMoid =  hxProfileJson["Results"][0]["Moid"]
-    profileDeployURL = profileURL + "/" + profileMoid
-    profileDeployPayload = {"Action":"Deploy"}
-    profileDeployResponse = requests.post(profileDeployURL, json=profileDeployPayload, verify=False, auth=AUTH)
-    time.sleep(60)
-    print(profileDeployResponse.text)
-    print("*********************************")
-    profileDeployStatus = requests.get(profileDeployURL, json=profileDeployPayload, verify=False, auth=AUTH)
+    for i in range(len(Results)):
+        profileMoid =  hxProfileJson["Results"][i]["Moid"]
+        if (profileMoid == hxProfile):
+            profileDeployURL = profileURL + "/" + profileMoid
+            profileDeployPayload = {"Action":"Deploy"}
+            profileDeployResponse = requests.post(profileDeployURL, json=profileDeployPayload, verify=False, auth=AUTH)
+            time.sleep(60)
+            print(profileDeployResponse.text)
+            print("*********************************")
+            profileDeployStatus = requests.get(profileDeployURL, json=profileDeployPayload, verify=False, auth=AUTH)
     #print(profileDeployStatus.text)
 
 def statusHXDeploy(specDict):

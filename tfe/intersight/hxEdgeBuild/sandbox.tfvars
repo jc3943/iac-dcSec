@@ -76,7 +76,7 @@ hx_hypervisor_admin_user                    = "root"
 # software_version_policy
 hx_software_version_policy_name             = "sandbox-swVerPol"
 hx_software_version_policy_description      = "Software Version Policy"
-hx_hxdp_version                             = "4.5(2b)"
+hx_hxdp_version                             = "5.0(2b)"
 
 # sys_config_policy
 hx_sys_config_policy_name                   = "sandbox-sysConfgi"

@@ -76,12 +76,12 @@ def getServerSummaries(specDict):
 def deployHXProfiles(specDict):
     hxProfile = os.environ['BRANCH_NAME']
     profileURL = specDict['url'] + "/api/v1/hyperflex/ClusterProfiles"
-    #print(profileURL)
     response = requests.get(profileURL, verify=False, auth=AUTH)
     hxProfileJson = response.json()
     for i in range(len(hxProfileJson['Results'])):
-        profileMoid =  hxProfileJson["Results"][i]["Moid"]
-        if (profileMoid == hxProfile):
+        profileName =  hxProfileJson["Results"][i]["Name"]
+        if (profileName == hxProfile):
+            profileMoid =  hxProfileJson["Results"][i]["Moid"]
             profileDeployURL = profileURL + "/" + profileMoid
             profileDeployPayload = {"Action":"Deploy"}
             profileDeployResponse = requests.post(profileDeployURL, json=profileDeployPayload, verify=False, auth=AUTH)
@@ -89,13 +89,13 @@ def deployHXProfiles(specDict):
             print(profileDeployResponse.text)
             print("*********************************")
             profileDeployStatus = requests.get(profileDeployURL, json=profileDeployPayload, verify=False, auth=AUTH)
-    #print(profileDeployStatus.text)
+    return profileMoid
 
-def statusHXDeploy(specDict):
-    profileURL = specDict['url'] + "/api/v1/hyperflex/ClusterProfiles"
-    response = requests.get(profileURL, verify=False, auth=AUTH)
-    hxProfileJson = response.json()
-    profileMoid =  hxProfileJson["Results"][0]["Moid"]
+def statusHXDeploy(specDict, profileMoid):
+    #profileURL = specDict['url'] + "/api/v1/hyperflex/ClusterProfiles"
+    #response = requests.get(profileURL, verify=False, auth=AUTH)
+    #hxProfileJson = response.json()
+    #profileMoid =  hxProfileJson["Results"][0]["Moid"]
     profileDeployURL = profileURL + "/" + profileMoid
     for i in range(0, 18):
         print("*********************************")

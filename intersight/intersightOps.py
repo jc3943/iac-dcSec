@@ -92,7 +92,7 @@ def deployHXProfiles(specDict):
     return profileMoid
 
 def statusHXDeploy(specDict, profileMoid):
-    #profileURL = specDict['url'] + "/api/v1/hyperflex/ClusterProfiles"
+    profileURL = specDict['url'] + "/api/v1/hyperflex/ClusterProfiles"
     #response = requests.get(profileURL, verify=False, auth=AUTH)
     #hxProfileJson = response.json()
     #profileMoid =  hxProfileJson["Results"][0]["Moid"]

@@ -4,17 +4,17 @@
   gather_facts: false
   vars: 
     esxi_username: 'root'
-    esxi_password: 'THORP@ssw0rd'
-    esxi_host: '172.16.14.24'
-    vcenter_hostname: '172.16.10.241'
+    esxi_password: 'DEVP@ssw0rd'
+    esxi_host: '172.16.115.11'
+    vcenter_hostname: '172.16.14.137'
     vcenter_password: 'DEVP@ssw0rd'
     vcsa_user: 'administrator@vsphere.local'
     vcsa_pw: 'DEVP@ssw0rd'
     domain: 'thor.iws.navy.mil'
     pubkey: 'ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBACmlZI97WQ8CGCKP6dypiTcCudqSN1QWEUTPZkKl37AvAwLS1cvlVBSMixyrPrPB4/zQlw9RKiW5ihtckik2jG2/AE6dX7J+fHzHh2QL08D45T3qFm82XSevKXn+ntWsHttpCcg/KVOftsLj52/2H5Xs084H9hPjd86mJIvIr+p3YxSog== dcloud@dcloud'
     searchpath: "thor.iws.navy.mil"
-    datastore: 'DEV'
-    networks: 'Storage Controller Management Network'
+    datastore: 'sandbox'
+    #networks: 'Storage Controller Management Network'
     ubuntu_ova_name: jammy-server-cloudimg-amd64.ova
     ubuntu_ova_file: '/tmp/{{ ubuntu_ova_name }}'
     nfs_file_browser_url: "http://172.16.10.124:8005"

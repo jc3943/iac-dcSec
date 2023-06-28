@@ -87,7 +87,7 @@ pipeline {
         }
         container('ubuntu-runner') {
           ansiblePlaybook(
-              playbook: './vmware/ubuntuTmplCreate.yml',
+              playbook: './vmware/ubuntuDeployOva.yml',
               inventory: 'localhost',
               colorized: true
           )

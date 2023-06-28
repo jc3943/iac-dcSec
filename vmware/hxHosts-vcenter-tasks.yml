@@ -26,6 +26,30 @@
       delegate_to: localhost
       tags: ssh
 
+    - name: TASK - Enable DRS on the Cluster
+      community.vmware.vmware_cluster_drs:
+        hostname: "{{ vcsa_ipAddress }}"
+        username: "{{ vcsa_user }}"
+        password: "{{ vcsa_pwd }}"
+        validate_certs: no
+        datacenter_name: "{{ datacenter_name }}"
+        cluster_name: "{{ cluster_name }}"
+        enable: true
+      delegate_to: localhost
+      tags: drs
+
+    - name: TASK - Enable HA on the Cluster
+      community.vmware.vmware_cluster_ha:
+        hostname: "{{ vcsa_ipAddress }}"
+        username: "{{ vcsa_user }}"
+        password: "{{ vcsa_pwd }}"
+        validate_certs: no
+        datacenter_name: "{{ datacenter_name }}"
+        cluster_name: "{{ cluster_name }}"
+        enable: true
+      delegate_to: localhost
+      tags: drs
+
     - name: TASK - Add vMotion Port Group to vSwitch
       community.vmware.vmware_portgroup:
         hostname: "{{ vcsa_ipAddress }}"

@@ -58,7 +58,7 @@
       validate_certs: no
       inject_ovf_env: true
       datastore: '{{ datastore }}'
-      networks: "{{ vms.tenant }}|{{ vms.appProfile }}|{{ vms.epg }}"
+      networks: "{u'Network 1':u'{{ vms.tenant }}|{{ vms.appProfile }}|{{ vms.epg }}'}"
       properties:
         instance-id: 'ubuntu-{{ vms.epg }}'
         hostname: 'ubuntu-{{ vms.epg }}'

@@ -7,7 +7,7 @@ import csv, json, pprint
 import random
 from random import seed
 
-nexDashBaseUrl = "https://198.18.133.100"
+nexDashBaseUrl = "https://172.20.104.90"
 
 def nexDashGetToken(specDict):
     tokenUrl = nexDashBaseUrl + "/login"
@@ -30,7 +30,7 @@ def nexDashAddSite(specDict, cookie):
 
     siteUrl = nexDashBaseUrl + "/nexus/api/sitemanagement/v4/sites"
     siteHeader = {"Cookie":authString,"content-type": "application/json"}
-    sitePayload = {"spec":{"host":csvDict[0]['apicIp'],"latitude":"10","name":"dCloud","password":"QzFzY28xMjM0NQ==","siteType":"ACI","userName":"admin"}}
+    sitePayload = {"spec":{"host":csvDict[0]['apicIp'],"latitude":"10","name":"sandbox-aci","password":"REVWUEBzc3cwcmQ=","siteType":"ACI","userName":"admin"}}
     siteAddResponse = requests.post(siteUrl, headers=siteHeader, json=sitePayload, verify=False)
     siteJson = siteAddResponse.json()
     print(siteJson)

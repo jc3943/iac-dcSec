@@ -40,7 +40,7 @@
 
   - name: Download the file
     get_url:
-      url: '{{ nfs_file_browser_url }}/api/raw/00-Software/OVA/{{ ubuntu_ova_name }}?auth={{ auth_res.content  }}'
+      url: '{{ nfs_file_browser_url }}/api/raw/00-Software/utils/{{ ubuntu_ova_name }}?auth={{ auth_res.content  }}'
       dest: '/tmp/{{ ubuntu_ova_name }}'
 
   - read_csv:

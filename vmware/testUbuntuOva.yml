@@ -45,31 +45,17 @@
       url: '{{ nfs_file_browser_url }}/api/raw/00-Software/utils/{{ ubuntu_ova_name }}?auth={{ auth_res.content  }}'
       dest: '/tmp/{{ ubuntu_ova_name }}'
 
-  - read_csv:
-      path: ../$varPath/aci/tenant.csv
-    register: tenantlist
-    tags: canary
-
   - vmware_deploy_ovf:
       hostname: '{{ vcenter_hostname }}'
       username: '{{ vcsa_user }}'
       password: '{{ vcsa_pw }}'
-      name: 'ubuntu-{{ vms.epg }}'
-      ovf: '{{ ubuntu_ova_file }}' 
+      name: 'ubuntu-TEST_1'
+      ovf: '/tmp/jammy-server-cloudimg-amd64.ova' 
       wait_for_ip_address: false
       validate_certs: no
       inject_ovf_env: true
       datastore: '{{ datastore }}'
       datacenter: '{{ datacenter }}'
       cluster: '{{ cluster }}'
-      networks: "{u'{{ vms.domain }}':u'{{ vms.tenant }}|{{ vms.appProfile }}|{{ vms.epg }}'}"
-      properties:
-        instance-id: 'ubuntu-{{ vms.epg }}'
-        hostname: 'ubuntu-{{ vms.epg }}'
-        public-keys: '{{ pubkey}}'
-        password: '{{ esxi_password }}'
-    loop: "{{ tenantlist.list }}"
-    loop_control:
-        loop_var: vms
-    when: (vms.domainType == "vmm" and vms.dhcpRelay != "NA")
+      networks: "{u'Network adapter 1':u'{Storage Controller Management Network'}"
     delegate_to: localhost

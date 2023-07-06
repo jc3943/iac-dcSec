@@ -14,6 +14,8 @@
     pubkey: 'ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBACmlZI97WQ8CGCKP6dypiTcCudqSN1QWEUTPZkKl37AvAwLS1cvlVBSMixyrPrPB4/zQlw9RKiW5ihtckik2jG2/AE6dX7J+fHzHh2QL08D45T3qFm82XSevKXn+ntWsHttpCcg/KVOftsLj52/2H5Xs084H9hPjd86mJIvIr+p3YxSog== dcloud@dcloud'
     searchpath: "thor.iws.navy.mil"
     datastore: 'sandbox'
+    datacenter: 'sandbox'
+    cluster: 'sandbox'
     #networks: 'Storage Controller Management Network'
     ubuntu_ova_name: jammy-server-cloudimg-amd64.ova
     ubuntu_ova_file: '/tmp/{{ ubuntu_ova_name }}'
@@ -49,15 +51,17 @@
     tags: canary
 
   - vmware_deploy_ovf:
-      hostname: '{{ esxi_host }}'
-      username: '{{ esxi_username }}'
-      password: '{{ esxi_password }}'
+      hostname: '{{ vcenter_hostname }}'
+      username: '{{ vcsa_user }}'
+      password: '{{ vcenter_password }}'
       name: 'ubuntu-{{ vms.epg }}'
       ovf: '{{ ubuntu_ova_file }}' 
       wait_for_ip_address: false
       validate_certs: no
       inject_ovf_env: true
       datastore: '{{ datastore }}'
+      datacenter: '{{ datacenter }}'
+      cluster: '{{ cluster }}'
       networks: "{u'Network 1':u'{{ vms.tenant }}|{{ vms.appProfile }}|{{ vms.epg }}'}"
       properties:
         instance-id: 'ubuntu-{{ vms.epg }}'

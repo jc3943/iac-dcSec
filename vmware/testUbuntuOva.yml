@@ -57,5 +57,5 @@
       datastore: '{{ datastore }}'
       datacenter: '{{ datacenter }}'
       cluster: '{{ cluster }}'
-      networks: "{u'Network 1':u'{Storage Controller Management Network'}"
+      networks: "{u'Storage Controller Management Network':u'Storage Controller Management Network'}"
     delegate_to: localhost

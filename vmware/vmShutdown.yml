@@ -4,14 +4,14 @@
   connection: local
   gather_facts: False
   vars:
-    datacenter: "OUSV3"
-    cluster: "OUSV3"
+    datacenter: "sandbox"
+    cluster: "sandbox"
     folder: "/"
-    datastore: "OUSV3"
+    datastore: "sandbox"
   
   tasks:
     - read_csv:
-        path: $varPath/OUSV3-vmList.csv
+        path: $varPath/sandbox-vmList.csv
       register: vmlist
       tags: shutdown, P3, P2, P1, poweroff, P0
 

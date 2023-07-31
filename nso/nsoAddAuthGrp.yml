@@ -1,0 +1,22 @@
+---
+#Jeff Comer
+#Ansible playbook to add devices to NSO
+
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: CREATE DEVICE IN NSO
+    cisco.nso.nso_config:
+      url: "{{ item.nsoUrl }}"
+      username: ncsadmin
+      password: ncsadmin
+      data:
+        tailf-ncs:devices:
+          authgroups:
+            group:
+              - name: dcloud-creds
+                default-map:
+                  remote-name: admin
+                  remote-password: C1sco12345
+    with_items: "{{ nsospecs }}"

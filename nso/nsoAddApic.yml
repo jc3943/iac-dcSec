@@ -9,8 +9,8 @@
   - name: CREATE DEVICE IN NSO
     cisco.nso.nso_config:
       url: "{{ item.nsoUrl }}"
-      username: admin
-      password: admin
+      username: ncsadmin
+      password: ncsadmin
       data:
         tailf-ncs:devices:
           device:

@@ -6,7 +6,7 @@
 #}
 
 resource "fmc_access_policies" "access_policy" {
-    name = "dcloud-accessPolicy"
+    name = "dev-accessPolicy"
     default_action = "permit"
 }
 
@@ -36,14 +36,14 @@ resource "fmc_access_rules" "access_rule_threatInspect" {
     log_end = true
 }
 
-resource "fmc_devices" "dcloud_ftd" {
+resource "fmc_devices" "dev_ftd" {
     name = var.fmc_ftd1_name
     hostname = var.fmc_ftd1
     regkey = var.fmc_regkey
-    type = "Device"
+    #type = "Device"
     access_policy {
         id = fmc_access_policies.access_policy.id
-        type = fmc_access_policies.access_policy.type
+        #type = fmc_access_policies.access_policy.type
     }
 }
 

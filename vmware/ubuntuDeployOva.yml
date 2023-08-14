@@ -65,7 +65,7 @@
       #networks: "{u'{{ vms.domain }}':u'{{ vms.tenant }}|{{ vms.appProfile }}|{{ vms.epg }}'}"
       #networks: "{u'Storage Controller Management Network':u'Storage Controller Management Network'}"
       networks:
-        "Network 1": "Storage Controller Management Network"
+        "Network adapter 1": "Storage Controller Management Network"
       properties:
         instance-id: 'ubuntu-{{ vms.epg }}'
         hostname: 'ubuntu-{{ vms.epg }}'

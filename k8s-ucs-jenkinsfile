@@ -30,6 +30,7 @@ pipeline {
       steps {
         container('ubuntu-tfe') {
           //kick policy and profile create
+          sh 'python3 ./aci/aciCreate_yaml_from_csv_v4.3.py -i $varPath/aci/bare-metal-aep.csv -o $varPath/aci/bare-metal-aep.yaml'
           dir('tfe/intersight/hxEdgeBuild') {
             sh 'terraform init'
             sh 'terraform apply -var-file=sandbox.tfvars -auto-approve'

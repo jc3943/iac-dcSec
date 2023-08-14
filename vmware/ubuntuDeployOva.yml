@@ -59,6 +59,7 @@
       wait_for_ip_address: false
       validate_certs: no
       inject_ovf_env: true
+      power_on: false
       datastore: '{{ datastore }}'
       #datacenter: '{{ datacenter }}'
       #cluster: '{{ cluster }}'

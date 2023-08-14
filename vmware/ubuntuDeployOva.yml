@@ -74,3 +74,16 @@
     #    loop_var: vms
     #when: (vms.domainType == "vmm" and vms.dhcpRelay != "NA")
     #delegate_to: localhost
+
+  - name: TASK - Clone Ubuntu Template
+    community.vmware.vmware_guest:
+      hostname: '{{ vcenter_hostname }}'
+      username: '{{ vcsa_user }}'
+      password: '{{ vcsa_pw }}'
+      validate_certs: no
+      template: "ubuntu-templ"
+      name: 'ubuntu-templ'
+      folder: /
+      datacenter: '{{ datacenter }}'
+      cluster: '{{ cluster }}'
+      is_template: true

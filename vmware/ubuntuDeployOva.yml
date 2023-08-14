@@ -62,7 +62,8 @@
       datastore: '{{ datastore }}'
       datacenter: '{{ datacenter }}'
       cluster: '{{ cluster }}'
-      networks: "{u'{{ vms.domain }}':u'{{ vms.tenant }}|{{ vms.appProfile }}|{{ vms.epg }}'}"
+      #networks: "{u'{{ vms.domain }}':u'{{ vms.tenant }}|{{ vms.appProfile }}|{{ vms.epg }}'}"
+      networks: "{u'{{ vms.tenant }}|{{ vms.appProfile }}|{{ vms.epg }}'}"
       properties:
         instance-id: 'ubuntu-{{ vms.epg }}'
         hostname: 'ubuntu-{{ vms.epg }}'

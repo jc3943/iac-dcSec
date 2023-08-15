@@ -88,8 +88,8 @@
       networks:
         - name: "{{ vms.tenant }}|{{ vms.appProfile }}|{{ vms.epg }}"
           type: dhcp
-          connected: yes
-          start_connected: yes
+          connected: true
+          start_connected: true
       state: poweredon
     loop: "{{ tenantlist.list }}"
     loop_control:

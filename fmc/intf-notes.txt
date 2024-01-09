@@ -1,0 +1,14 @@
+data "fmc_device_physical_interfaces" "gig1_intf" {
+    device_id = fmc_devices.dcloud_ftd.id
+    name = "Insde_intf"
+}
+
+data "fmc_device_physical_interfaces" "gig2_intf" {
+    device_id = fmc_devices.dcloud_ftd.id
+    name = "Outside_Intf"
+}
+
+data "fmc_device_physical_interfaces" "gig3_intf" {
+    device_id = fmc_devices.dcloud_ftd.id
+    name = "Dmz_Intf"
+}

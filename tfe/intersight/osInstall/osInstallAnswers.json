@@ -49,7 +49,7 @@
             "IsAnswerFileSet": false,
             "IsRootPasswordCrypted": false,
             "IsRootPasswordSet": true,
-            "Nameserver": "172.16.20.101",
+            "Nameserver": "172.0.1.10",
             "NetworkDevice": "vmnic5",
             "ProductKey": "",
             "Source": "Template"

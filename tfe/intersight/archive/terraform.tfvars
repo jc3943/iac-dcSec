@@ -60,7 +60,7 @@ ntp = ["172.20.1.254"]
 
 # DNS
 dns_domain = "thor.iws.navy.mil"
-dns = ["172.16.20.101"]
+dns = ["172.0.1.10"]
 
 # VCenter
 vcenter_hostname = "hx-dev-vcsa.thor.iws.navy.mi"

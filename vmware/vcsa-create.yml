@@ -9,7 +9,7 @@
     vcenter_password: 'DEVP@ssw0rd'
     net_prefix: '24'
     net_gateway: '172.16.14.254'
-    dns_servers: '172.16.20.101'
+    dns_servers: '172.0.1.10'
     ntp_servers: '172.20.1.254'
     domain: 'thor.iws.navy.mil'
     searchpath: "thor.iws.navy.mil"

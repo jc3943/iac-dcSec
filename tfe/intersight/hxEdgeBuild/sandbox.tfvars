@@ -82,7 +82,7 @@ hx_hxdp_version                             = "5.0(2b)"
 hx_sys_config_policy_name                   = "sandbox-sysConfgi"
 hx_sys_config_policy_description            = "System Config Policy"
 hx_dns_domain_name                          = "thor.iws.navy.mil"
-hx_dns_servers                              = ["172.16.20.101"] # ["x.x.x.1", "x.x.x.2"]
+hx_dns_servers                              = ["172.0.1.10"] # ["x.x.x.1", "x.x.x.2"]
 hx_ntp_servers                              = ["172.20.1.254"] # ["x.x.x.3", "x.x.x.4"]
 hx_timezone                                 = "America/New_York"
 

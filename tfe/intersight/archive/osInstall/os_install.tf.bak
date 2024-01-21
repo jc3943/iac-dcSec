@@ -28,7 +28,7 @@ resource "intersight_os_bulk_install_info" "os_install" {
           IpAddress = "172.16.115.41"
           NetMask   = "255.255.252.0"
           GateWay   = "172.16.115.254"
-          dns1      = "172.16.20.101"
+          dns1      = "172.0.1.10"
           dns2      = "172.20.1.254"
           syslog    = "172.16.10.99"
           vlanId    = "1200"

@@ -28,7 +28,7 @@ bridge_domains:
     scope: public,shared
     L3Out: out-L3Out_SBOX
     dhcpRelay: YES
-    dhcpProviderIP: 172.16.20.101
+    dhcpProviderIP: 172.0.1.10
   - bd: BD_1201
     gateway: 172.16.116.254
     mask: 24
@@ -55,7 +55,7 @@ bridge_domains:
     scope: public,shared
     L3Out: out-L3Out_SBOX
     dhcpRelay: YES
-    dhcpProviderIP: 172.16.20.101
+    dhcpProviderIP: 172.0.1.10
   - bd: BD_1202
     gateway: 172.16.117.254
     mask: 24

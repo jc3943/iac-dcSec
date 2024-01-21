@@ -1,0 +1,57 @@
+---
+#Jeff Comer
+#Ansible playbook to add devices to NSO
+
+- hosts: localhost
+  gather_facts: no
+  vars:
+    url: http://9.1.18.101:8080/jsonrpc
+
+  tasks:
+  - read_csv:
+      path: $varPath/nso/nsoDevices.csv
+    register: devlist
+
+  - name: CREATE AuthGroup IN NSO
+    cisco.nso.nso_config:
+      url: "{{ url }}"
+      username: ncsadmin
+      password: ncsadmin
+      data:
+        tailf-ncs:devices:
+          authgroups:
+            group:
+              - name: "{{ devices.authGroupName }}"
+                default-map:
+                  remote-name: "{{ devices.authGroupUser }}"
+                  remote-password: "{{ devices.authGroupPw | b64decode }}"
+                  remote-secondary-password: "{{ devices.authGroupPw | b64decode }}"
+    loop: "{{ devlist.list }}"
+      loop_control:
+        loop_var: devices
+    when: (devices.authGroupName != "")
+
+  - name: ADD NXOS DEVICES IN NSO
+    cisco.nso.nso_config:
+      url: "{{ url }}"
+      username: ncsadmin
+      password: ncsadmin
+      data:
+        tailf-ncs:devices:
+          device:
+           - address: "{{ item.nxosip }}"
+             description: CONFIGURED BY ANSIBLE!
+             name: "{{ item.nxosname }}"
+             authgroup: "gse-creds"
+             device-type:
+               cli:
+                 ned-id: "cisco-nx-cli-5.23"
+             port: "22"
+             state:
+               admin-state: "unlocked"
+             ssh:
+               host-key-verification: "none"
+    loop: "{{ devlist.list }}"
+      loop_control:
+        loop_var: devices
+    when: (devices.deviceType == "nxos")

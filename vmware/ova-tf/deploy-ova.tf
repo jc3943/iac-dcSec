@@ -1,14 +1,14 @@
 data "vsphere_datacenter" "datacenter" {
-  name = "sandbox"
+  name = "HX-DEV"
 }
 
 data "vsphere_datastore" "datastore" {
-  name          = "sandbox"
+  name          = "DEV"
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
 data "vsphere_compute_cluster" "cluster" {
-  name          = "sandbox"
+  name          = "hx-dev"
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
@@ -18,12 +18,12 @@ data "vsphere_resource_pool" "default" {
 }
 
 data "vsphere_host" "host" {
-  name          = "sandbox-esx1.thor.iws.navy.mil"
+  name          = "172.16.14.21"
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
 data "vsphere_network" "network" {
-  name          = "SERVICES|Management|EPG_1200"
+  name          = "Storage Controller Management Network"
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 

@@ -5,11 +5,11 @@
 - hosts: localhost
   gather_facts: no
   vars:
-    url: http://9.1.18.101:8080/jsonrpc
+    url: http://172.0.1.10:8082/jsonrpc
 
   tasks:
   - read_csv:
-      path: $varPath/nso/nsoDevices.csv
+      path: ../$varPath/nso/nsoDevices2.csv
     register: devlist
 
   - name: CREATE AuthGroup IN NSO
@@ -27,8 +27,8 @@
                   remote-password: "{{ devices.authGroupPw | b64decode }}"
                   remote-secondary-password: "{{ devices.authGroupPw | b64decode }}"
     loop: "{{ devlist.list }}"
-      loop_control:
-        loop_var: devices
+    loop_control:
+      loop_var: devices
     when: (devices.authGroupName != "")
 
   - name: ADD NXOS DEVICES IN NSO
@@ -39,10 +39,10 @@
       data:
         tailf-ncs:devices:
           device:
-           - address: "{{ item.nxosip }}"
+           - address: "{{ devices.deviceIp }}"
              description: CONFIGURED BY ANSIBLE!
-             name: "{{ item.nxosname }}"
-             authgroup: "gse-creds"
+             name: "{{ devices.deviceName }}"
+             authgroup: "dev-creds"
              device-type:
                cli:
                  ned-id: "cisco-nx-cli-5.23"
@@ -52,6 +52,94 @@
              ssh:
                host-key-verification: "none"
     loop: "{{ devlist.list }}"
-      loop_control:
-        loop_var: devices
+    loop_control:
+      loop_var: devices
     when: (devices.deviceType == "nxos")
+
+  - name: ADD IOSXE DEVICES IN NSO
+    cisco.nso.nso_config:
+      url: "{{ url }}"
+      username: ncsadmin
+      password: ncsadmin
+      data:
+        tailf-ncs:devices:
+          device:
+           - address: "{{ devices.deviceIp }}"
+             description: CONFIGURED BY ANSIBLE!
+             name: "{{ devices.deviceName }}"
+             authgroup: "dev-creds"
+             device-type:
+               cli:
+                 ned-id: "cisco-ios-cli-6.92"
+             port: "22"
+             state:
+               admin-state: "unlocked"
+             ssh:
+               host-key-verification: "none"
+    loop: "{{ devlist.list }}"
+    loop_control:
+      loop_var: devices
+    when: (devices.deviceType == "iosxe")
+
+  - name: ADD APICs TO NSO
+    cisco.nso.nso_config:
+      url: "{{ url }}"
+      username: ncsadmin
+      password: ncsadmin
+      data:
+        tailf-ncs:devices:
+          device:
+           - address: "{{ devices.deviceIp }}"
+             description: CONFIGURED BY ANSIBLE!
+             name: "{{ devices.deviceName }}"
+             authgroup: "dev-creds"
+             local-user: admin
+             device-type:
+               generic:
+                 ned-id: "cisco-apicdc-gen-3.19"
+             ned-settings:
+               tailf-ned-cisco-apicdc-meta:cisco-apicdc:
+                 config-path: "/home/ubuntu/root/aci"
+                 local-host: False
+                 host: "172.0.1.10"
+                 user-name: "ubuntu"
+                 user-password: "DEVP@ssw0rd"
+             ssh:
+               host-key-verification: "none"
+             port: "443"
+             state:
+               admin-state: "unlocked"
+    loop: "{{ devlist.list }}"
+    loop_control:
+      loop_var: devices
+    when: (devices.deviceType == "aci")
+
+  - name: Fetch ssh host keys
+    cisco.nso.nso_action:
+      url: "{{ url }}"
+      username: ncsadmin
+      password: ncsadmin
+      path: /ncs:devices/fetch-ssh-host-keys
+      input: {}
+
+  - name: Connect to Device
+    cisco.nso.nso_action:
+      url: "{{ url }}"
+      username: ncsadmin
+      password: ncsadmin
+      path: /ncs:devices/device{"{{ devices.deviceName }}"}/connect
+      input: {}
+    loop: "{{ devlist.list }}"
+    loop_control:
+      loop_var: devices
+
+  - name: Sync From Device
+    cisco.nso.nso_action:
+      url: "{{ url }}"
+      username: ncsadmin
+      password: ncsadmin
+      path: /ncs:devices/device{"{{ devices.deviceName }}"}/sync-from
+      input: {}
+    loop: "{{ devlist.list }}"
+    loop_control:
+      loop_var: devices

@@ -17,7 +17,7 @@ repo_name               = "ESXi-7.0"
 repo_nr_version         = "ESXi 7.0 U3"
 repo_vendor             = "VMware"
 repo_description        = "ESXi 7.0 U3 Cisco Custom ISO"
-repo_source_os_iso_path = "http://172.0.1.10/vmware/VMware-ESXi-7.0.3d-19482537-Custom-Cisco-4.2.2-a.iso"
+repo_source_os_iso_path = "http://172.0.1.10:8080/vmware/VMware-ESXi-7.0.3d-19482537-Custom-Cisco-4.2.2-a.iso"
 
 # Common attributes between OS/SCU Resources:
 repo_source_cifs_mount_options = ""
@@ -26,7 +26,7 @@ repo_source_user               = ""
 repo_source_password           = ""
 
 # create_scu_repo
-repo_source_scu_iso_path = "http://172.0.1.10/Intersight/ucs-scu-6.2.3b.iso"
+repo_source_scu_iso_path = "http://172.0.1.10:8080/Intersight/ucs-scu-6.2.3b.iso"
 scu_name                 = "SCU-6.2.3b"
 scu_description          = "SCU 6.2.3b software config utility"
 scu_nr_version           = "6.2.3b"

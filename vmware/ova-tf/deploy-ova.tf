@@ -36,7 +36,7 @@ data "vsphere_ovf_vm_template" "ovfRemote" {
   host_system_id    = data.vsphere_host.host.id
   remote_ovf_url    = "http://172.0.1.10:8080/aci/acisim-6.0-2h.ova"
   ovf_network_map = {
-    "VM Network" : data.vsphere_network.network.id
+    "Network 1" : data.vsphere_network.network.id
   }
 }
 

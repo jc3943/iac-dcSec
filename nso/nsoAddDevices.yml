@@ -99,11 +99,11 @@
                  ned-id: "cisco-apicdc-gen-3.19"
              ned-settings:
                tailf-ned-cisco-apicdc-meta:cisco-apicdc:
-                 config-path: "/home/ubuntu/root/aci"
+                 config-path: "/home/thor/aci"
                  local-host: False
-                 host: "172.0.1.10"
-                 user-name: "ubuntu"
-                 user-password: "DEVP@ssw0rd"
+                 host: "172.16.14.132"
+                 user-name: "thor"
+                 user-password: "THORP@ssw0rd"
              ssh:
                host-key-verification: "none"
              port: "443"

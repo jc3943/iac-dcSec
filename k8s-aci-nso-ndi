@@ -1,0 +1,57 @@
+//Authored by Jeff Comer
+
+def nodeLabel = 'pod-builder-agent'
+pipeline {
+  environment {
+        BRANCH_NAME = "${GIT_BRANCH}"
+        varPath = "vars/" + "${BRANCH_NAME}"
+        APIC_CREDS = credentials('apic-creds')
+        apicSnap = "acisim-521g-base-" + "${BRANCH_NAME}"
+        apicVm = "acisim-5.2-1g-" + "${BRANCH_NAME}"
+        apicInventory = "./creds/inv-" + "${BRANCH_NAME}"
+        apicInventoryx509 = "./creds/inv-" + "${BRANCH_NAME}" + "-x509"
+        vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".thor.iws.navy.mil"
+  }
+  agent {
+    kubernetes {
+      yamlFile 'jnlp-ubuntu.yaml'
+    }
+  }
+  
+  stages{
+    stage('Stat k8s Nodes') {
+      steps {
+        container('ubuntu-runner') {
+          //Check health state of k8s nodes in target cluster
+          sh 'cp -r .kube /root/'
+          sh 'python3 k8s/clusterHealth.py'
+        }
+      }
+    }
+    stage('Sync to NSO Pre-Change') {
+      steps {
+        container('ubuntu-runner') {
+          ansiblePlaybook(
+              playbook: './nso/nsoAddDevices.yml',
+              inventory: 'localhost',
+              colorized: true
+          )
+        }
+      }
+    }
+    stage('Create and Configure Tenant') {
+      steps {
+        container('ubuntu-runner') {
+          //Build tenant from vars
+          sh 'python3 aci/aciCreate_yaml_from_csv_v4.3.py -i $varPath/aci/tenantUpdates.csv -o  $varPath/aci/tenantUpdates.yaml'
+          ansiblePlaybook(
+              playbook: './aci/aciMake-tenants-x509v4.3.yml',
+              inventory: '$apicInventoryx509',
+              extras: '--extra-vars="@$varPath/aci/tenantUpdates.yaml"',
+              colorized: true
+          )
+        }
+      }
+    }
+  }
+}

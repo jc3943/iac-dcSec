@@ -1,0 +1,3 @@
+bridgeDomain,gateway,prefixLength,tenant,vrf,appProfile,descriptioin,epg,domain,domainType,contract,vlanEncaps,encapsType,filter,l3Out,multivrf,rp,dhcpRelay,dhcpProviderIP,aep,mode
+BD_1250,172.16.250.254,24,SERVICES,services-vrf,Management,IaaS Management EPG,EPG_1250,HX-VMM,vmm,SERVICES-Contract,1250,auto,services-allow_all,out-L3Out_SBOX,NA,NA,YES,NA,NA,NA
+BD_1251,172.16.251.254,24,SERVICES,services-vrf,Management,IaaS Data EPG,EPG_1251,HX-VMM,vmm,SERVICES-Contract,1251,auto,services-allow_all,NA,NA,NA,YES,NA,NA,NA

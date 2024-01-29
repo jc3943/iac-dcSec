@@ -45,11 +45,12 @@ pipeline {
           //Build tenant from vars
           sh 'python3 aci/aciCreate_yaml_from_csv_v4.3.py -i $varPath/aci/tenantUpdates.csv -o  $varPath/aci/tenantUpdates.yaml'
           ansiblePlaybook(
-              playbook: './aci/aciMake-tenants-x509v4.3.yml',
+              playbook: './aci/aciAddBd.yml',
               inventory: '$apicInventoryx509',
-              extras: '--extra-vars="@$varPath/aci/tenantUpdates.yaml"',
+              extras: '--extra-vars="@$varPath/aci/tenantUpdates.yaml" --check',
               colorized: true
           )
+          sh 'cat aci/data/bd.json'
         }
       }
     }

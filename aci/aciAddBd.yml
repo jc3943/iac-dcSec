@@ -1,0 +1,30 @@
+---
+# Jeff Comer
+# Ansible Playbook to add hosts to vcenter and attach nic's to a DVS
+# example seed file vars/<branch>/tenants.yaml which was created using create_yaml_from_csv_v4.3.py
+
+- name: CREATE ACI TENANTS
+  hosts: apic
+  connection: local
+  gather_facts: False
+
+  tasks:
+
+    - name: TASK 03 - ENSURE TENANT BRIDGE DOMAINS EXIST
+      aci_bd:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        private_key: ../creds/ansible.key
+        state: "present"
+        validate_certs: False
+        tenant: "{{ item.tenant }}"
+        bd: "{{ item.bd | default('prod_bd') }}"
+        vrf: "{{ item.vrf }}"
+        arp_flooding: "yes"
+        l2_unknown_unicast: "flood"
+        enable_multicast: "yes"
+        igmp_snoop_policy: "default"
+        endpoint_move_detect: "garp"
+        output_path: 'data/bd.json'
+      with_items: "{{ bridge_domains }}"
+      tags: bd

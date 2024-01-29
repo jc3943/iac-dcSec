@@ -138,6 +138,7 @@
         enable_multicast: "yes"
         igmp_snoop_policy: "default"
         endpoint_move_detect: "garp"
+        output_path: 'data/bd.json'
       with_items: "{{ bridge_domains }}"
       tags: bd
 

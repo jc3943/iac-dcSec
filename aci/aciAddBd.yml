@@ -9,7 +9,7 @@
   gather_facts: False
 
   tasks:
-
+    
     - name: TASK 03 - ENSURE TENANT BRIDGE DOMAINS EXIST
       aci_bd:
         host: "{{ inventory_hostname }}"
@@ -28,3 +28,18 @@
         output_path: 'data/bd.json'
       with_items: "{{ bridge_domains }}"
       tags: bd
+    
+    - name: TASK 04 - ENSURE BRIDGE DOMAINS HAVE SUBNETS
+      aci_bd_subnet:
+        host: "{{ inventory_hostname }}"
+        username: "{{ username }}"
+        private_key: ../creds/ansible.key
+        validate_certs: False
+        state: "present"
+        tenant: "{{ item.tenant }}"
+        bd: "{{ item.bd }}"
+        gateway: "{{ item.gateway }}"
+        mask: "{{ item.mask }}"
+        scope: "{{ item.scope }}"
+        output_path: 'data/bdSubnets.json'
+      with_items: "{{ bridge_domains }}"

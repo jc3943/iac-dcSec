@@ -1,1 +1,18 @@
-[{"fvBD": {"attributes": {"arpFlood": "yes", "epMoveDetectMode": "garp", "mcastAllow": "yes", "name": "BD_1250", "unkMacUcastAct": "flood", "annotation": "orchestrator:ansible", "dn": "uni/tn-SERVICES/BD-BD_1250"}, "children": [{"fvRsCtx": {"attributes": {"tnFvCtxName": "services-vrf"}}}, {"fvRsIgmpsn": {"attributes": {"tnIgmpSnoopPolName": "default"}}}]}}]
+{
+  "totalCount": "1",
+  "imdata": [
+    {
+      "fvBD": {
+        "attributes": {
+          "arpFlood": "yes",
+          "epMoveDetectMode": "garp",
+          "mcastAllow": "yes",
+          "name": "BD_1250",
+          "unkMacUcastAct": "flood",
+          "annotation": "orchestrator:ansible",
+          "dn": "uni/tn-SERVICES/BD-BD_1250"
+        }
+      }
+    }
+  ]
+}

@@ -1,15 +1,1 @@
-{
-  "totalCount": "1",
-  "imdata": [
-    {
-      "fvSubnet": {
-        "attributes": {
-          "ip": "172.16.250.254/24",
-          "scope": "public,shared",
-          "annotation": "orchestrator:ansible",
-          "dn": "uni/tn-SERVICES/BD-BD_1250/subnet-[172.16.250.254/24]"
-        }
-      }
-    }
-  ]
-}
+[{"fvSubnet": {"attributes": {"ip": "172.16.115.254/22", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-SERVICES/BD-BD_1200/subnet-[172.16.115.254/22]"}}}][{"fvSubnet": {"attributes": {"ip": "172.16.116.254/24", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-SERVICES/BD-BD_1201/subnet-[172.16.116.254/24]"}}}][{"fvSubnet": {"attributes": {"ip": "172.16.117.254/24", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-SERVICES/BD-BD_1202/subnet-[172.16.117.254/24]"}}}][{"fvSubnet": {"attributes": {"ip": "172.16.115.254/22", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-SERVICES/BD-BD_1200/subnet-[172.16.115.254/22]"}}}][{"fvSubnet": {"attributes": {"ip": "172.16.117.254/24", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-SERVICES/BD-BD_1202/subnet-[172.16.117.254/24]"}}}][{"fvSubnet": {"attributes": {"ip": "172.16.125.14/28", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-SERVICES/BD-BD_5/subnet-[172.16.125.14/28]"}}}][{"fvSubnet": {"attributes": {"ip": "172.16.118.254/24", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-SERVICES/BD-BD_1225/subnet-[172.16.118.254/24]"}}}][{"fvSubnet": {"attributes": {"ip": "192.168.10.254/24", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-DTWIN/BD-BD_10/subnet-[192.168.10.254/24]"}}}][{"fvSubnet": {"attributes": {"ip": "192.168.20.254/24", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-DTWIN/BD-BD_20/subnet-[192.168.20.254/24]"}}}][{"fvSubnet": {"attributes": {"ip": "192.168.30.254/24", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-DTWIN/BD-BD_30/subnet-[192.168.30.254/24]"}}}][{"fvSubnet": {"attributes": {"ip": "192.168.10.254/24", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-DEV/BD-BD_10/subnet-[192.168.10.254/24]"}}}][{"fvSubnet": {"attributes": {"ip": "192.168.20.254/24", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-DEV/BD-BD_20/subnet-[192.168.20.254/24]"}}}][{"fvSubnet": {"attributes": {"ip": "192.168.30.254/24", "scope": "public,shared", "annotation": "orchestrator:ansible", "dn": "uni/tn-DEV/BD-BD_30/subnet-[192.168.30.254/24]"}}}]

@@ -1,0 +1,54 @@
+---
+    - hosts: localhost
+      name: Deploy the APIC OVA to an ESXi Host
+      gather_facts: false
+      vars: 
+        esxi_hostname: '172.16.14.137'
+        esxi_username: 'administrator@vsphere.local'
+        esxi_password: 'DEVP@ssw0rd'
+        datastore: 'DEV'
+        datacenter: 'HX-DEV'
+        networks: 'Storage Controller Management Network'
+        vapic_ova_name: acisim-6.0-5h.ova
+        vapic_ova_file: '/tmp/{{ vapic_ova_name }}'
+        nfs_file_browser_url: "http://172.0.1.10:8080"
+        nfs_file_url: '/aci/{{ vapic_ova_name }}'
+    
+      tasks:
+
+      - read_csv:
+          path: ../$varPath/aci/apic-sims.csv
+        register: apicSims
+        tags: apic-sim
+
+      - name: Download the file
+        get_url:
+          url: '{{ nfs_file_browser_url }}/aci/{{ vapic_ova_name }}'
+          dest: '/tmp/{{ vapic_ova_name }}'
+
+      - vmware_deploy_ovf:
+          hostname: '{{ esxi_hostname }}'
+          username: '{{ esxi_username }}'
+          password: '{{ esxi_password }}'
+          name: 'apic_sim_tmpl' 
+          ovf: '{{ vapic_ova_file }}'
+          wait_for_ip_address: false
+          validate_certs: no
+          inject_ovf_env: false
+          datacenter: '{{ datacenter }}'
+          datastore: '{{ datastore }}'
+          networks: "{u'Network 1':u'{{ networks }}'}"
+        delegate_to: localhost
+
+      - name: TASK - Create Ubuntu Template
+        community.vmware.vmware_guest:
+          hostname: '{{ vcenter_hostname }}'
+          username: '{{ vcsa_user }}'
+          password: '{{ vcsa_pw }}'
+          validate_certs: no
+          template: "apic_sim_tmpl"
+          name: 'apic_sim_tmpl'
+          folder: /
+          datacenter: '{{ datacenter }}'
+          cluster: '{{ cluster }}'
+          is_template: true

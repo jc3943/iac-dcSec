@@ -1,0 +1,17 @@
+﻿namePrefix,version,pod,url,ova,tenant,appProfile,epg
+acisim-,6.0-5h,pod1,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD1
+acisim-,6.0-5h,pod2,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD2
+acisim-,6.0-5h,pod3,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD3
+acisim-,6.0-5h,pod4,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD4
+acisim-,6.0-5h,pod5,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD5
+acisim-,6.0-5h,pod6,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD6
+acisim-,6.0-5h,pod7,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD7
+acisim-,6.0-5h,pod8,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD8
+acisim-,6.0-5h,pod9,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD9
+acisim-,6.0-5h,pod10,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD10
+acisim-,6.0-5h,pod11,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD11
+acisim-,6.0-5h,pod12,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD12
+acisim-,6.0-5h,pod13,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD13
+acisim-,6.0-5h,pod14,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD14
+acisim-,6.0-5h,pod15,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD15
+acisim-,6.0-5h,pod16,http://172.0.1.10:8080,acisim-6.0-5h.ova,CG61,CL_PODS,EPG_POD16

@@ -12,8 +12,6 @@
         vapic_ova_url: 172.16.100.100:/mnt/nfsshare/00-Software/vmware/
         vapic_ova_file: '/tmp/{{ vapic_ova_name }}'
         nfs_file_browser_url: "http://172.0.1.10:8080"
-        nfs_file_browser_user: "admin"
-        nfs_file_browser_password: "admin"
         nfs_file_url: '/aci/{{ vapic_ova_name }}'
     
       tasks:

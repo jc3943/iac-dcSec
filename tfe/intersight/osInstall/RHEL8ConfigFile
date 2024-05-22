@@ -1,0 +1,51 @@
+#version=DEVEL
+# System authorization information
+auth --enableshadow --passalgo=sha512
+# Use CDROM installation media
+cdrom
+# Use graphical install
+graphical
+# Run the Setup Agent on first boot
+firstboot --enable
+# Keyboard layouts
+keyboard --vckeymap=us --xlayouts='us'
+# System language
+lang en_US.UTF-8
+DISKIDPLACEHOLDER
+#Changes are required in the partition (part) directives that follow.
+autopart --type=lvm
+#Clear the Master Boot Record
+zerombr
+# Network information
+{{if (eq .answers.IpVersion "V4")}}
+{{if (eq .answers.IpConfigType "DHCP")}}network --bootproto=dhcp {{ if .answers.NetworkDevice }} --device={{ .answers.NetworkDevice }} {{ else }} --device=link {{ end }} {{end}}
+{{if (eq .answers.IpConfigType "static")}}network --bootproto=static {{ if .answers.NetworkDevice }} --device={{ .answers.NetworkDevice }} {{ else }} --device=link {{ end }} --activate --gateway={{ .answers.IpV4Config.Gateway }} --ip={{ .answers.IpV4Config.IpAddress }} --nameserver={{ .answers.NameServer }}{{ if .answers.AlternateNameServer }},{{ .answers.AlternateNameServer}}{{end}} --netmask={{ .answers.IpV4Config.Netmask }}{{end}}
+{{end}}
+{{if (eq .answers.IpVersion "V6")}}
+{{if (eq .answers.IpConfigType "DHCP")}}network --bootproto=dhcp {{ if .answers.NetworkDevice }} --device={{ .answers.NetworkDevice }} {{ else }} --device=link {{ end }} --ipv6=auto --activate{{end}}
+{{if (eq .answers.IpConfigType "static")}}network --bootproto=static {{ if .answers.NetworkDevice }} --device={{ .answers.NetworkDevice }} {{ else }} --device=link {{ end }} --nameserver={{ .answers.NameServer }}{{ if .answers.AlternateNameServer }},{{ .answers.AlternateNameServer}}{{end}} --ipv6={{ .answers.IpV6Config.IpAddress }}/{{ .answers.IpV6Config.Prefix }} --noipv4 --activate --ipv6gateway={{ .answers.IpV6Config.Gateway }} {{end}}
+{{end}}
+network --hostname={{ .answers.Hostname }}
+# Root password
+rootpw --iscrypted {{ .answers.RootPassword }}
+# System services
+services --enabled="chronyd"
+# System timezone
+timezone America/New_York --isUtc
+%packages
+@^minimal-environment
+@development
+@rpm-development-tools
+@system-tools
+%end
+%addon com_redhat_kdump --disable --reserve-mb='auto'
+%end
+%anaconda
+pwpolicy root --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+pwpolicy user --minlen=6 --minquality=1 --notstrict --nochanges --emptyok
+pwpolicy luks --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+%end
+%post --nochroot --log=/root/ks-post.log
+OS_INSTALL_COMPLETED_STATUS_PLACEHOLDER
+%end
+reboot

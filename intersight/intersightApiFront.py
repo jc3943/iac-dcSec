@@ -13,7 +13,7 @@ AUTH = IntersightAuth(
     secret_key_filename='creds/dev-isight-SecretKey.txt',
     api_key_id='6457bfa47564612d300f0917/6457cbbd7564612d30cb32ab/64595f8c7564612d30cb47cc'
     )
-intersightUrl = "https://dev-intersight.thor.iws.navy.mil"
+intersightUrl = "https://dev-intersight.devlab.lab.com"
 
 @api.route("/intersight/serverSummary")
 class getServerSummary(Resource):

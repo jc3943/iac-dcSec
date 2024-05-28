@@ -8,7 +8,7 @@ pipeline {
         TF_VAR_varPath = "vars/" + "${BRANCH_NAME}"
         TF_VAR_imcSeedFile = "../../../vars/" + "${BRANCH_NAME}" + "/imc/hostIpAddrs.csv"
         IMC_CREDS = credentials('imc-creds')
-        vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".thor.iws.navy.mil"
+        vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".devlab.lab.com"
   }
   agent {
     kubernetes {
@@ -55,7 +55,7 @@ pipeline {
             sh 'terraform apply -var-file=sandbox.tfvars -auto-approve'
           }
           //Need add status checking to python script for status to replace sleep
-          sh 'python3 intersight/intersightDevClaimStatus.py -u https://dev-intersight.thor.iws.navy.mil -i $varPath/imc/hostIpAddrs.csv'
+          sh 'python3 intersight/intersightDevClaimStatus.py -u https://dev-intersight.devlab.lab.com -i $varPath/imc/hostIpAddrs.csv'
           //sh 'sleep 180'
           //Start bare metal esxi host installs
           //build job: 'intersight-BareMetalInstall', propagate: true, wait: false

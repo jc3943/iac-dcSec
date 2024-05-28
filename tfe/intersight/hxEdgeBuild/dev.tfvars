@@ -2,7 +2,7 @@
 # Intersight Access API Key
 api_key                                     = "6273ddc07564612d30091b97/6273e4cc7564612d300964b9/62f53d6e7564612d30253ff4"
 secret_key                                  = "../../../creds/qa-isight-SecretKey.txt"
-endpoint                                    = "https://qa-intersight.thor.iws.navy.mil"
+endpoint                                    = "https://qa-intersight.devlab.lab.com"
 # Common
 org_name                                    = "default"
 # Tags
@@ -12,7 +12,7 @@ tag_value1                                  = "m5"
 # auto_support_policy 
 hx_auto_support_name                        = "sandbox-autoSupport"
 hx_auto_support_description                 = "auto support policy"
-hx_auto_support_service_ticket_receipient   = "thor@thor.iws.navy.mil"
+hx_auto_support_service_ticket_receipient   = "thor@devlab.lab.com"
 hx_auto_support_admin_state                 = false
 
 # cluster_network_policy
@@ -79,7 +79,7 @@ hx_hxdp_version                             = "5.0(2b)"
 # sys_config_policy
 hx_sys_config_policy_name                   = "sandbox-sysConfgi"
 hx_sys_config_policy_description            = "System Config Policy"
-hx_dns_domain_name                          = "thor.iws.navy.mil"
+hx_dns_domain_name                          = "devlab.lab.com"
 hx_dns_servers                              = ["172.0.1.10"] # ["x.x.x.1", "x.x.x.2"]
 hx_ntp_servers                              = ["172.20.1.254"] # ["x.x.x.3", "x.x.x.4"]
 hx_timezone                                 = "America/New_York"

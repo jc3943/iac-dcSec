@@ -1,4 +1,4 @@
-https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
+https://qa-intersight.devlab.lab.com/api/v1/hyperflex/ClusterProfiles
 {
   "ObjectType": "hyperflex.ClusterProfile.List",
   "Results": [
@@ -13,7 +13,7 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
         "ClassId": "mo.MoRef",
         "Moid": "630b9b756973682d30393dea",
         "ObjectType": "hyperflex.AutoSupportPolicy",
-        "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/AutoSupportPolicies/630b9b756973682d30393dea"
+        "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/AutoSupportPolicies/630b9b756973682d30393dea"
       },
       "ClassId": "hyperflex.ClusterProfile",
       "ClusterInternalSubnet": {
@@ -27,13 +27,13 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
         "ClassId": "mo.MoRef",
         "Moid": "630b9b756973682d30393dc1",
         "ObjectType": "hyperflex.ClusterNetworkPolicy",
-        "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterNetworkPolicies/630b9b756973682d30393dc1"
+        "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/ClusterNetworkPolicies/630b9b756973682d30393dc1"
       },
       "ClusterStorage": {
         "ClassId": "mo.MoRef",
         "Moid": "630b9b756973682d30393de5",
         "ObjectType": "hyperflex.ClusterStoragePolicy",
-        "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterStoragePolicies/630b9b756973682d30393de5"
+        "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/ClusterStoragePolicies/630b9b756973682d30393de5"
       },
       "ConfigContext": {
         "ClassId": "policy.ConfigContext",
@@ -48,7 +48,7 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
         "ClassId": "mo.MoRef",
         "Moid": "63121fb36973682d30395d0d",
         "ObjectType": "hyperflex.ConfigResult",
-        "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ConfigResults/63121fb36973682d30395d0d"
+        "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/ConfigResults/63121fb36973682d30395d0d"
       },
       "CreateTime": "2022-09-02T15:22:27.841Z",
       "DataIpAddress": "169.254.239.1",
@@ -64,7 +64,7 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
         "ClassId": "mo.MoRef",
         "Moid": "630b9b756973682d30393dc6",
         "ObjectType": "hyperflex.LocalCredentialPolicy",
-        "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/LocalCredentialPolicies/630b9b756973682d30393dc6"
+        "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/LocalCredentialPolicies/630b9b756973682d30393dc6"
       },
       "MacAddressPrefix": "00:25:B5:EF",
       "MgmtIpAddress": "172.16.114.10",
@@ -76,26 +76,26 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
         "ClassId": "mo.MoRef",
         "Moid": "630b9b756973682d30393dd5",
         "ObjectType": "hyperflex.NodeConfigPolicy",
-        "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/NodeConfigPolicies/630b9b756973682d30393dd5"
+        "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/NodeConfigPolicies/630b9b756973682d30393dd5"
       },
       "NodeProfileConfig": [
         {
           "ClassId": "mo.MoRef",
           "Moid": "63121fb46973682d30395d15",
           "ObjectType": "hyperflex.NodeProfile",
-          "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/NodeProfiles/63121fb46973682d30395d15"
+          "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/NodeProfiles/63121fb46973682d30395d15"
         },
         {
           "ClassId": "mo.MoRef",
           "Moid": "63121fb56973682d30395d35",
           "ObjectType": "hyperflex.NodeProfile",
-          "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/NodeProfiles/63121fb56973682d30395d35"
+          "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/NodeProfiles/63121fb56973682d30395d35"
         },
         {
           "ClassId": "mo.MoRef",
           "Moid": "63121fb56973682d30395d60",
           "ObjectType": "hyperflex.NodeProfile",
-          "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/NodeProfiles/63121fb56973682d30395d60"
+          "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/NodeProfiles/63121fb56973682d30395d60"
         }
       ],
       "ObjectType": "hyperflex.ClusterProfile",
@@ -103,7 +103,7 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
         "ClassId": "mo.MoRef",
         "Moid": "6273e3fd6972652d3030ae8d",
         "ObjectType": "organization.Organization",
-        "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/organization/Organizations/6273e3fd6972652d3030ae8d"
+        "link": "https://qa-intersight.devlab.lab.com/api/v1/organization/Organizations/6273e3fd6972652d3030ae8d"
       },
       "Owners": [
         "6273ddc07564612d30091b97"
@@ -113,7 +113,7 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
           "ClassId": "mo.MoRef",
           "Moid": "6273e3fd6972652d3030ae8d",
           "ObjectType": "organization.Organization",
-          "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/organization/Organizations/6273e3fd6972652d3030ae8d"
+          "link": "https://qa-intersight.devlab.lab.com/api/v1/organization/Organizations/6273e3fd6972652d3030ae8d"
         }
       ],
       "PolicyBucket": [],
@@ -121,7 +121,7 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
         "ClassId": "mo.MoRef",
         "Moid": "630b9b756973682d30393def",
         "ObjectType": "hyperflex.ProxySettingPolicy",
-        "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ProxySettingPolicies/630b9b756973682d30393def"
+        "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/ProxySettingPolicies/630b9b756973682d30393def"
       },
       "Replication": 3,
       "RunningWorkflows": [
@@ -129,7 +129,7 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
           "ClassId": "mo.MoRef",
           "Moid": "63122584696f6e2d30fc7b95",
           "ObjectType": "workflow.WorkflowInfo",
-          "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/workflow/WorkflowInfos/63122584696f6e2d30fc7b95"
+          "link": "https://qa-intersight.devlab.lab.com/api/v1/workflow/WorkflowInfos/63122584696f6e2d30fc7b95"
         }
       ],
       "SharedScope": "",
@@ -137,7 +137,7 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
         "ClassId": "mo.MoRef",
         "Moid": "63121fb26973682d30395ced",
         "ObjectType": "hyperflex.SoftwareVersionPolicy",
-        "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/SoftwareVersionPolicies/63121fb26973682d30395ced"
+        "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/SoftwareVersionPolicies/63121fb26973682d30395ced"
       },
       "SrcTemplate": null,
       "StorageClientIpAddress": "169.254.240.1",
@@ -160,7 +160,7 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
         "ClassId": "mo.MoRef",
         "Moid": "630b9b756973682d30393de0",
         "ObjectType": "hyperflex.SysConfigPolicy",
-        "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/SysConfigPolicies/630b9b756973682d30393de0"
+        "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/SysConfigPolicies/630b9b756973682d30393de0"
       },
       "Tags": [
         {
@@ -174,7 +174,7 @@ https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/ClusterProfiles
         "ClassId": "mo.MoRef",
         "Moid": "630b9b756973682d30393dda",
         "ObjectType": "hyperflex.VcenterConfigPolicy",
-        "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/hyperflex/VcenterConfigPolicies/630b9b756973682d30393dda"
+        "link": "https://qa-intersight.devlab.lab.com/api/v1/hyperflex/VcenterConfigPolicies/630b9b756973682d30393dda"
       },
       "WwxnPrefix": ""
     }

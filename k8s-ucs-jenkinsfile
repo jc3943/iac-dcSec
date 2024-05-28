@@ -6,7 +6,7 @@ pipeline {
         BRANCH_NAME = "${GIT_BRANCH}"
         varPath = "vars/" + "${BRANCH_NAME}"
         APIC_CREDS = credentials('apic-creds')
-        vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".thor.iws.navy.mil"
+        vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".devlab.lab.com"
         VCSA_CREDS = credentials('vcsa-creds')
         vcsaIpAddress = "172.16.14.137"
   }
@@ -35,7 +35,7 @@ pipeline {
             sh 'terraform init'
             sh 'terraform apply -var-file=sandbox.tfvars -auto-approve'
           }
-          sh 'python3 intersight/intersightProfiles.py -u https://dev-intersight.thor.iws.navy.mil'
+          sh 'python3 intersight/intersightProfiles.py -u https://dev-intersight.devlab.lab.com'
         }
       }
     } 

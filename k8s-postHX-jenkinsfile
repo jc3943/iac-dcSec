@@ -6,7 +6,7 @@ pipeline {
         BRANCH_NAME = "${GIT_BRANCH}"
         varPath = "vars/" + "${BRANCH_NAME}"
         APIC_CREDS = credentials('apic-creds')
-        vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".thor.iws.navy.mil"
+        vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".devlab.lab.com"
         VCSA_CREDS = credentials('vcsa-creds')
         vcsaIpAddress = "172.16.14.137"
   }

@@ -1,7 +1,7 @@
 # Intersight Access API Key
 api_key    = "6273ddc07564612d30091b97/6273e4cc7564612d300964b9/62f53d6e7564612d30253ff4"
 secret_key = "../../../creds/qa-isight-SecretKey.txt"
-endpoint   = "https://qa-intersight.thor.iws.navy.mil"
+endpoint   = "https://qa-intersight.devlab.lab.com"
 
 org_name   = "default"
 

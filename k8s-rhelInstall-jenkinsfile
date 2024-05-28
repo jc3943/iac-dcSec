@@ -8,7 +8,7 @@ pipeline {
         repoVars = "${varPath}" + "/terraform/" +  "rhel_repos.tfvars"
         osVars = "${varPath}" + "/terraform/" +  "rhel_install.tfvars"
         APIC_CREDS = credentials('apic-creds')
-        vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".thor.iws.navy.mil"
+        vcsaHostName = "vcsa-" + "${BRANCH_NAME}" + ".devlab.lab.com"
   }
   agent {
     kubernetes {

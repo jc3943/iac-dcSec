@@ -26,7 +26,7 @@
               "ObjectType": "organization.Organization",
               "ClassId": "mo.MoRef",
               "Moid": "6273e3fd6972652d3030ae8d",
-              "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/organization/Organizations/6273e3fd6972652d3030ae8d"
+              "link": "https://qa-intersight.devlab.lab.com/api/v1/organization/Organizations/6273e3fd6972652d3030ae8d"
             }
           ],
           "AdditionalParameters": [],
@@ -75,31 +75,31 @@
             "ObjectType": "os.ConfigurationFile",
             "ClassId": "mo.MoRef",
             "Moid": "6273e458ad1203b1c4391159",
-            "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/os/ConfigurationFiles/6273e458ad1203b1c4391159"
+            "link": "https://qa-intersight.devlab.lab.com/api/v1/os/ConfigurationFiles/6273e458ad1203b1c4391159"
           },
           "Image": {
             "ObjectType": "softwarerepository.OperatingSystemFile",
             "ClassId": "mo.MoRef",
             "Moid": "63d5c5c26567612d305cb2b1",
-            "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/softwarerepository/OperatingSystemFiles/63d5c5c26567612d305cb2b1"
+            "link": "https://qa-intersight.devlab.lab.com/api/v1/softwarerepository/OperatingSystemFiles/63d5c5c26567612d305cb2b1"
           },
           "Organization": {
             "ObjectType": "organization.Organization",
             "ClassId": "mo.MoRef",
             "Moid": "6273e3fd6972652d3030ae8d",
-            "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/organization/Organizations/6273e3fd6972652d3030ae8d"
+            "link": "https://qa-intersight.devlab.lab.com/api/v1/organization/Organizations/6273e3fd6972652d3030ae8d"
           },
           "OsduImage": {
             "ObjectType": "firmware.ServerConfigurationUtilityDistributable",
             "ClassId": "mo.MoRef",
             "Moid": "63d5c5c26567612d305cb2ac",
-            "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/firmware/ServerConfigurationUtilityDistributables/63d5c5c26567612d305cb2ac"
+            "link": "https://qa-intersight.devlab.lab.com/api/v1/firmware/ServerConfigurationUtilityDistributables/63d5c5c26567612d305cb2ac"
           },
           "Server": {
             "ObjectType": "compute.RackUnit",
             "ClassId": "mo.MoRef",
             "Moid": "63d15c426176752d305cc591",
-            "link": "https://qa-intersight.thor.iws.navy.mil/api/v1/compute/RackUnits/63d15c426176752d305cc591"
+            "link": "https://qa-intersight.devlab.lab.com/api/v1/compute/RackUnits/63d15c426176752d305cc591"
           },
           "WorkflowInfo": null
         }

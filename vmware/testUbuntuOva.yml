@@ -10,9 +10,9 @@
     vcenter_password: 'DEVP@ssw0rd'
     vcsa_user: 'administrator@vsphere.local'
     vcsa_pw: 'DEVP@ssw0rd'
-    domain: 'thor.iws.navy.mil'
+    domain: 'devlab.lab.com'
     pubkey: 'ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBACmlZI97WQ8CGCKP6dypiTcCudqSN1QWEUTPZkKl37AvAwLS1cvlVBSMixyrPrPB4/zQlw9RKiW5ihtckik2jG2/AE6dX7J+fHzHh2QL08D45T3qFm82XSevKXn+ntWsHttpCcg/KVOftsLj52/2H5Xs084H9hPjd86mJIvIr+p3YxSog== dcloud@dcloud'
-    searchpath: "thor.iws.navy.mil"
+    searchpath: "devlab.lab.com"
     datastore: 'sandbox'
     datacenter: 'sandbox'
     cluster: 'sandbox'
